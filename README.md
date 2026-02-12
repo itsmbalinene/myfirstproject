@@ -1,2 +1,9 @@
-# myfirstproject
-Learning the basics.
+# My First Cybersecurity Project
+
+This repository is for learning:
+- GitHub basics
+- Python coding
+- Cybersecurity tools
+
+Day 1: Learning Git basics.
+
