@@ -7,3 +7,7 @@ This repository is for learning:
 
 Day 1: Learning Git basics.
 
+## Day 4 Progress
+- Added encryption tool
+- Added port scanner
+- Improved project structure
