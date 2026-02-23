@@ -1,21 +1,41 @@
-print("Advanced Password Strength Checker")
+"""
+Password Strength Checker
+Author: Mbali Nene
+Description:
+    Evaluates password strength based on length,
+    uppercase letters, lowercase letters,
+    numbers, and special characters.
+"""
 
-password = input("Enter a password: ")
+import re
 
-has_upper = any(char.isupper() for char in password)
-has_lower = any(char.islower() for char in password)
-has_digit = any(char.isdigit() for char in password)
-has_special = any(not char.isalnum() for char in password)
 
-if len(password) < 8:
-    print("Weak password - must be at least 8 characters.")
-elif not has_upper:
-    print("Weak password - add at least one uppercase letter.")
-elif not has_lower:
-    print("Weak password - add at least one lowercase letter.")
-elif not has_digit:
-    print("Weak password - add at least one number.")
-elif not has_special:
-    print("Weak password - add at least one special character.")
-else:
-    print("Strong password!")
+def check_password_strength(password: str) -> None:
+    score = 0
+
+    if len(password) >= 8:
+        score += 1
+    if re.search(r"[A-Z]", password):
+        score += 1
+    if re.search(r"[a-z]", password):
+        score += 1
+    if re.search(r"[0-9]", password):
+        score += 1
+    if re.search(r"[!@#$%^&*(),.?\":{}|<>]", password):
+        score += 1
+
+    if score <= 2:
+        print("Weak Password")
+    elif score == 3 or score == 4:
+        print("Moderate Password")
+    else:
+        print("Strong Password")
+
+
+def main():
+    password = input("Enter a password to check: ")
+    check_password_strength(password)
+
+
+if __name__ == "__main__":
+    main()
